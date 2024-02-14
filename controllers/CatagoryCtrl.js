@@ -92,7 +92,7 @@ const getCategory = async (req, res, next) => {
             query = { $or: [{ title: search }, { description: search }] }
 
         }
-        const total = await Category.countDocumens(query);
+        const total = await Category.countDocuments(query);
         const pages = Math.ceil(total / sizeNumber);
 
         const catagoryList = await Category.find(query).skip((pageNumber - 1) * sizeNumber).limit(sizeNumber).sort({ updatedBy: -1 });
