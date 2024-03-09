@@ -47,7 +47,7 @@ const signin = async (req, res, next) => {
         //generating  a token after the user is found 
 
         const token = generateToken(user);
-        res.status(200).json({ code: 200, status: true, message: "User signin successfull", data: { token } })
+        res.status(200).json({ code: 200, status: true, message: "User signin successfull", data: { token,user } })
     } catch (error) {
         next(error);
     }
